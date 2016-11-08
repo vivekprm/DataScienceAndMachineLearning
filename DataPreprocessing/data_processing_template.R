@@ -2,6 +2,7 @@
 
 # Importing dataset
 dataset = read.csv('Data.csv')
+dataset = dataset[, 2:3]
 
 # Here no need to differentiate independent and dependent variables.
 
