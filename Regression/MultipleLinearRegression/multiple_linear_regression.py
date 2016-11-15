@@ -46,3 +46,26 @@ Y_pred = regressor.predict(X_test)
 import statsmodels.formula.api as sm
 # sm library doesn't account b0. So we need to add a column of 1s i.e. x0=1
 X = np.append(arr = np.ones((50,1)).astype(int), values = X, axis=1)
+
+#Step 2 Start backward elimination. X_opt contains independent variable only with high impact.
+X_opt = X[:, [0, 1, 2, 3, 4, 5]]
+regressor_OLS = sm.OLS(endog = Y, exog = X_opt).fit()
+
+# Step 3 Lower the p value(Probability) higher the significance level.
+regressor_OLS.summary()
+
+X_opt = X[:, [0, 1, 3, 4, 5]]
+regressor_OLS = sm.OLS(endog = Y, exog = X_opt).fit()
+regressor_OLS.summary()
+
+X_opt = X[:, [0, 3, 4, 5]]
+regressor_OLS = sm.OLS(endog = Y, exog = X_opt).fit()
+regressor_OLS.summary()
+
+X_opt = X[:, [0, 3, 5]]
+regressor_OLS = sm.OLS(endog = Y, exog = X_opt).fit()
+regressor_OLS.summary()
+
+X_opt = X[:, [0, 3]]
+regressor_OLS = sm.OLS(endog = Y, exog = X_opt).fit()
+regressor_OLS.summary()
