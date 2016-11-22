@@ -29,7 +29,6 @@ plt.scatter(X[Y_hc == 2, 0], X[Y_hc == 2, 1], s = 100, color = 'green', label = 
 plt.scatter(X[Y_hc == 3, 0], X[Y_hc == 3, 1], s = 100, color = 'cyan', label = 'Careless')
 plt.scatter(X[Y_hc == 4, 0], X[Y_hc == 4, 1], s = 100, color = 'magenta', label = 'Sensible')
 
-plt.scatter(hc.cluster_centers_[:, 0], hc.cluster_centers_[:, 1], s = 300, c= 'yellow', label = 'Centroids')
 plt.title('Clusters of clients')
 plt.xlabel('Annual Income (k$)')
 plt.ylabel('Spending Score (1-100)')
